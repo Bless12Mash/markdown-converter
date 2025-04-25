@@ -15,7 +15,7 @@ function App() {
     if (!validateSelection()) return;
 
     if (selectedFormats.includes('html')) downloadHTML(markdownContent);
-    if (selectedFormats.includes('pdf')) downloadPDF();
+    if (selectedFormats.includes('pdf')) downloadPDF(markdownContent);
     if (selectedFormats.includes('docx')) downloadDOCX(markdownContent);
     if (selectedFormats.includes('png')) downloadPNG();
   };
