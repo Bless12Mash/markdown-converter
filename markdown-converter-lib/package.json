@@ -1,5 +1,5 @@
 {
-	"name": "@blessing/markdown-converter-lib",
+	"name": "@blessingmashilezwane/markdown-converter-lib",
 	"version": "1.0.0",
 	"description": "Convert markdown to various formats including HTML, PDF, DOCX, and PNG",
 	"main": "dist/index.js",
@@ -10,7 +10,11 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/blessing/markdown-converter.git"
+		"url": "git://github.com/blessingMashileZwane/markdown-converter.git"
+	},
+	"homepage": "https://github.com/blessingMashileZwane/markdown-converter#readme",
+	"bugs": {
+		"url": "https://github.com/blessingMashileZwane/markdown-converter/issues"
 	},
 	"scripts": {
 		"build": "tsc",
