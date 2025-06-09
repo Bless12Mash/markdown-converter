@@ -2,7 +2,13 @@ name: Publish Package to GitHub Packages
 
 on:
   release:
-    types: [created]
+    types: [created, published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Package version (e.g., 1.0.1)'
+        required: true
+        default: '1.0.0'
 
 jobs:
   build:
@@ -26,10 +32,19 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
+      - name: Update version if manually triggered
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          cd markdown-converter-lib
+          npm version ${{ github.event.inputs.version }} --no-git-tag-version
+
       - name: Build
         run: cd markdown-converter-lib && npm run build
 
       - name: Publish
-        run: cd markdown-converter-lib && npm publish
+        run: |
+          cd markdown-converter-lib
+          echo "Publishing package..."
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
