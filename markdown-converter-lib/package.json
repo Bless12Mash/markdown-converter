@@ -1,0 +1,48 @@
+{
+	"name": "@blessing/markdown-converter-lib",
+	"version": "1.0.0",
+	"description": "Convert markdown to various formats including HTML, PDF, DOCX, and PNG",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/blessing/markdown-converter.git"
+	},
+	"scripts": {
+		"build": "tsc",
+		"prepublishOnly": "npm run build"
+	},
+	"keywords": [
+		"markdown",
+		"converter",
+		"docx",
+		"pdf",
+		"html",
+		"png",
+		"export"
+	],
+	"author": "",
+	"license": "MIT",
+	"dependencies": {
+		"docx": "^9.4.1",
+		"html2canvas": "^1.4.1",
+		"jspdf": "^3.0.1",
+		"mammoth": "^1.9.0",
+		"marked": "^15.0.11",
+		"pdf-lib": "^1.17.1"
+	},
+	"devDependencies": {
+		"@types/node": "^22.15.2",
+		"typescript": "~5.7.2"
+	},
+	"peerDependencies": {},
+	"files": [
+		"dist",
+		"LICENSE",
+		"README.md"
+	]
+}

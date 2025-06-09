@@ -1,0 +1,35 @@
+name: Publish Package to GitHub Packages
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@blessing'
+
+      - name: Install dependencies
+        run: cd markdown-converter-lib && npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Build
+        run: cd markdown-converter-lib && npm run build
+
+      - name: Publish
+        run: cd markdown-converter-lib && npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
