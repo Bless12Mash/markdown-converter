@@ -24,16 +24,36 @@ A modern React application that allows you to convert Markdown files to various 
 
 ### Installation
 
-1. Clone the repository
-2. Install dependencies:
+1. Create a Personal Access Token (PAT) on GitHub:
+
+   - Go to GitHub.com → Settings → Developer settings → Personal access tokens → Tokens (classic)
+   - Generate new token (classic)
+   - Select `read:packages` scope
+   - Copy the token
+
+2. Create `.npmrc` in your project root:
 
 ```bash
-npm install
-# or
-yarn
+//npm.pkg.github.com/:_authToken=${NPM_TOKEN}
+@blessingmashilezwane:registry=https://npm.pkg.github.com/
+always-auth=true
 ```
 
-3. Start the development server:
+3. Set your GitHub PAT as an environment variable:
+
+```bash
+export NPM_TOKEN=your_github_pat_here
+```
+
+4. Install the package:
+
+```bash
+npm install @blessingmashilezwane/markdown-converter-lib
+# or
+yarn add @blessingmashilezwane/markdown-converter-lib
+```
+
+5. Start the development server:
 
 ```bash
 npm run dev
@@ -41,7 +61,7 @@ npm run dev
 yarn dev
 ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+6. Open your browser and navigate to `http://localhost:5173`
 
 ## Building for Production
 

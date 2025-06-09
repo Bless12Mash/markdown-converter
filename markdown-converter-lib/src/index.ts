@@ -2,8 +2,8 @@ import { Document, Packer } from "docx";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import mammoth from "mammoth";
 import { marked } from "marked";
-import { MarkdownProcessor } from "./MarkdownProcessor";
-import { ImageProcessor } from "./ImageProcessor";
+import { MarkdownProcessor } from "./MarkdownProcessor.js";
+import { ImageProcessor } from "./ImageProcessor.js";
 
 export class MarkdownConverter {
 	private markdownProcessor: MarkdownProcessor;

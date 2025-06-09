@@ -1,5 +1,7 @@
-import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+
+// @ts-ignore
+const html2canvas = require("html2canvas").default;
 
 export class ImageProcessor {
 	private createCaptureElement(sourceElement: HTMLElement): HTMLElement {
